@@ -9,7 +9,7 @@ package river;
  *     Use them to simplify loadBoat and unloadBoat.
  * 
  * (3) Implement a method called oppositeLocation that returns the START if the current location
- *     is FINSH and returns FINISH if the current location is START
+ *     is FINSH and returns FINISH if the current location is START. Use it to simplify rowBoat.
  *     
  * (4) Rename the method rowBoat to driveBoat
  * 
