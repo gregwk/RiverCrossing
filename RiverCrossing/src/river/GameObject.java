@@ -3,13 +3,13 @@ package river;
 import river.GameEngine.Location;
 
 /*
- * Create a constructor in this class that sets the name and sound to the empty string and
- * sets the location to Location.START. Modify the constructors of the subclasses to call the
- * superclass constructor, and then override values as appropriate.
- * 
- * Introduce a field "String sound" into this super class. Change the getSound method so it simply
- * returns the sound field, and override the default (empty string) sound in subclass constructors
- * as appropriate.
+ * (1) Introduce a field named "sound" of type String sound into this super class.
+ *     Change the getSound method so it simply returns the sound field, and override
+ *     the default (empty string) sound in subclass constructors as appropriate.
+ *
+ * (2) Create a constructor in this class that sets the name and sound to the empty string
+ *     and sets the location to Location.START. Modify the constructors of the subclasses
+ *     to call the superclass constructor, and then override values as appropriate.
  */
 
 public class GameObject {
