@@ -15,6 +15,13 @@ package river;
  * 
  * (5) It turns out we do not actually need the field currentLocation as it is always the same
  *     as the player's location. Remove this field.
+ *
+ * (6) The two enum types are currently inner classes. Make them regular classes in package river.
+ *     Change the constants in Item from TOP, MID, BOTTOM, and PLAYER to
+ *     WOLF, GOOSE, BEANS, and FARMER.
+ *     Change the constants START and FINISH in Location to LEFT_BANK and RIGHT_BANK
+ * 
+ * (7) Make all GameObject fields final.
  */
 
 public class GameEngine {

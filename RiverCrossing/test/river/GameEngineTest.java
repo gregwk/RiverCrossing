@@ -3,7 +3,6 @@ package river;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import river.GameEngine;
 
 import river.GameEngine.Item;
 import river.GameEngine.Location;
@@ -41,7 +40,7 @@ public class GameEngineTest {
 
         GameEngine engine = new GameEngine();
 
-        // transport the middle object
+        // transport the goose
         engine.loadBoat(Item.MID);
         engine.rowBoat();
         engine.unloadBoat();
@@ -53,21 +52,21 @@ public class GameEngineTest {
         Assert.assertFalse(engine.gameIsLost());
         Assert.assertFalse(engine.gameIsWon());
 
-        // transport the top object
+        // transport the wolf
         engine.loadBoat(Item.TOP);
         engine.rowBoat();
         engine.unloadBoat();
         Assert.assertFalse(engine.gameIsLost());
         Assert.assertFalse(engine.gameIsWon());
 
-        // transport the middle object
+        // transport the goose
         engine.loadBoat(Item.MID);
         engine.rowBoat();
         engine.unloadBoat();
         Assert.assertFalse(engine.gameIsLost());
         Assert.assertFalse(engine.gameIsWon());
 
-        // transport the bottom object
+        // transport the beans
         engine.loadBoat(Item.BOTTOM);
         engine.rowBoat();
         engine.unloadBoat();
@@ -79,7 +78,7 @@ public class GameEngineTest {
         Assert.assertFalse(engine.gameIsLost());
         Assert.assertFalse(engine.gameIsWon());
 
-        // transport the middle object
+        // transport the goose
         engine.loadBoat(Item.MID);
         engine.rowBoat();
         engine.unloadBoat();
@@ -92,7 +91,7 @@ public class GameEngineTest {
 
         GameEngine engine = new GameEngine();
 
-        // transport the middle object
+        // transport the goose
         engine.loadBoat(Item.MID);
         engine.rowBoat();
         engine.unloadBoat();
@@ -104,7 +103,7 @@ public class GameEngineTest {
         Assert.assertFalse(engine.gameIsLost());
         Assert.assertFalse(engine.gameIsWon());
 
-        // transport the top object
+        // transport the wolf
         engine.loadBoat(Item.TOP);
         engine.rowBoat();
         engine.unloadBoat();
@@ -122,7 +121,7 @@ public class GameEngineTest {
 
         GameEngine engine = new GameEngine();
 
-        // transport the middle object
+        // transport the goose
         engine.loadBoat(Item.MID);
         engine.rowBoat();
         engine.unloadBoat();
