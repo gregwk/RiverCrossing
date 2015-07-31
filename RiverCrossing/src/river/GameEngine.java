@@ -2,26 +2,29 @@ package river;
 
 /*
  * (1) Create a private method called getGameObject that returns a game object
- *     associated with an id and use it to simplify getName, getLocation, getSound, and loadBoat
+ *     associated with an id. Use the new method to simplify the getName,
+ *     getLocation, getSound, and loadBoat methods.
  * 
- * (2) Create two private methods: boatIsEmpty and getObjectOnBoat,
- *     which check if the boat is empty and returns the object on the boat, respectively.
+ * (2) Create two private methods: boatIsEmpty and getObjectOnBoat, that check
+ *     if the boat is empty and returns the object on the boat, respectively.
  *     Use them to simplify loadBoat and unloadBoat.
  * 
- * (3) Implement a method called oppositeLocation that returns the START if the current location
- *     is FINSH and returns FINISH if the current location is START. Use it to simplify rowBoat.
+ * (3) Implement a method called oppositeLocation that returns the START if the
+ *     current location is FINSH and returns FINISH if the current location is
+ *     START. Use it to simplify rowBoat.
  *     
  * (4) Rename the method rowBoat to driveBoat
  * 
- * (5) It turns out we do not actually need the field currentLocation as it is always the same
- *     as the player's location. Remove this field.
+ * (5) It turns out we do not actually need the field currentLocation as it is
+ *     always the same as the player's location. Remove this field.
  *
- * (6) The two enum types are currently inner classes. Make them regular classes in package river.
- *     Change the constants in Item from TOP, MID, BOTTOM, and PLAYER to
- *     WOLF, GOOSE, BEANS, and FARMER.
- *     Change the constants START and FINISH in Location to LEFT_BANK and RIGHT_BANK
+ * (6) The two enum types are currently inner classes. Make them regular classes
+ *     in package river. Change the constants in Item from TOP, MID, BOTTOM, and
+ *     PLAYER to WOLF, GOOSE, BEANS, and FARMER. Change the constants START and
+ *     FINISH in Location to LEFT_BANK and RIGHT_BANK.
  * 
- * (7) Make all GameObject fields final.
+ * (7) Make all GameObject fields final. Change the names top, mid, bottom, and
+ *     player to wolf, goose, beans, and farmer.
  */
 
 public class GameEngine {

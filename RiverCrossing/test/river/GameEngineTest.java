@@ -8,13 +8,13 @@ import river.GameEngine.Item;
 import river.GameEngine.Location;
 
 /*
- * (1) Every test method starts off by creating a local variable called "engine".
- *     Instead of doing this, declare a (private) field called "engine"
- *     and initialize it in the setUp method.
+ * (1) Every test method starts off by creating a local variable named engine.
+ *     Instead of doing this, declare a (private) field named engine and 
+ *     initialize it in the setUp method.
  * 
  * (2) Create a private method called transport, that loads the boat with an
- *     item, rows the boat, and unloads the boat. Use this method where you can
- *     to replace code that loads, rows, then unloads the boat. 
+ *     item, rows the boat, and unloads the boat. Use this method whereever you
+ *     can to replace code that loads, rows, then unloads the boat. 
  */
 
 public class GameEngineTest {
