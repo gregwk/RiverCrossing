@@ -8,12 +8,12 @@ import river.GameEngine.Item;
 import river.GameEngine.Location;
 
 /*
- * (1) Every test method starts off by creating a local variable named engine.
+ * (1) Most test methods start off by creating a local variable named engine.
  *     Instead of doing this, declare a (private) field named engine and 
  *     initialize it in the setUp method.
  * 
  * (2) Create a private method called transport, that loads the boat with an
- *     item, rows the boat, and unloads the boat. Use this method whereever you
+ *     item, rows the boat, and unloads the boat. Use this method wherever you
  *     can to replace code that loads, rows, then unloads the boat. 
  */
 
@@ -23,6 +23,26 @@ public class GameEngineTest {
     public void setUp() throws Exception {
     }
 
+    @Test
+    public void testObjects() {
+        GameObject farmer = new Farmer();
+        GameObject wolf = new Wolf();
+        GameObject goose = new Goose();
+        GameObject beans = new Beans();
+        Assert.assertEquals("Farmer", farmer.getName());
+        Assert.assertEquals(Location.START, farmer.getLocation());
+        Assert.assertEquals("", farmer.getSound());
+        Assert.assertEquals("Wolf", wolf.getName());
+        Assert.assertEquals(Location.START, wolf.getLocation());
+        Assert.assertEquals("Howl!", wolf.getSound());
+        Assert.assertEquals("Goose", goose.getName());
+        Assert.assertEquals(Location.START, goose.getLocation());
+        Assert.assertEquals("Honk!", goose.getSound());
+        Assert.assertEquals("Beans", beans.getName());
+        Assert.assertEquals(Location.START, beans.getLocation());
+        Assert.assertEquals("", beans.getSound());
+    }
+    
     @Test
     public void testMidTransport() {
         GameEngine engine = new GameEngine();
