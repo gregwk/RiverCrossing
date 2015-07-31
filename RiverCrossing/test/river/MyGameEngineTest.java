@@ -3,6 +3,7 @@ package river;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import river.GameEngine;
 
 import river.GameEngine.Item;
 import river.GameEngine.Location;
