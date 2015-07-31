@@ -18,7 +18,7 @@ import river.GameEngine.Location;
  *     to replace code that loads, rows, then unloads the boat. 
  */
 
-public class MyGameEngineTest {
+public class GameEngineTest {
 
     @Before
     public void setUp() throws Exception {
