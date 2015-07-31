@@ -34,10 +34,10 @@ public class GameEngineTest {
         Assert.assertEquals("", farmer.getSound());
         Assert.assertEquals("Wolf", wolf.getName());
         Assert.assertEquals(Location.START, wolf.getLocation());
-        Assert.assertEquals("Howl!", wolf.getSound());
+        Assert.assertEquals("Howl", wolf.getSound());
         Assert.assertEquals("Goose", goose.getName());
         Assert.assertEquals(Location.START, goose.getLocation());
-        Assert.assertEquals("Honk!", goose.getSound());
+        Assert.assertEquals("Honk", goose.getSound());
         Assert.assertEquals("Beans", beans.getName());
         Assert.assertEquals(Location.START, beans.getLocation());
         Assert.assertEquals("", beans.getSound());
