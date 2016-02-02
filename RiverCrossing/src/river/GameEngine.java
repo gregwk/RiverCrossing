@@ -13,7 +13,7 @@ package river;
  *     current location is FINSH and returns FINISH if the current location is
  *     START. Use it to simplify rowBoat.
  *     
- * (4) Rename the method rowBoat to driveBoat
+ * (4) Rename the method getCurrentLocation to getBoatLocation
  * 
  * (5) It turns out we do not actually need the field currentLocation as it is
  *     always the same as the player's location. Remove this field.
