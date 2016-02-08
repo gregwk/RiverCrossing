@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
@@ -17,12 +18,32 @@ import river.GameEngine.Location;
  * @author Gregory Kulczycki
  */
 public class RiverGUI extends JPanel implements MouseListener {
+    
+    // ==========================================================
+    // Fields (hotspots)
+    // ==========================================================
 
+    private final Rectangle leftFarmerRect = new Rectangle(80, 215, 50, 50);
+    private final Rectangle leftWolfRect = new Rectangle(20, 215, 50, 50);
+    private final Rectangle leftGooseRect = new Rectangle(20, 275, 50, 50);
+    private final Rectangle leftBeansRect = new Rectangle(80, 275, 50, 50);
+    private final Rectangle leftBoatRect = new Rectangle(140, 275, 110, 50);
+    private final Rectangle leftBoatDriverRect = new Rectangle(140, 215, 50, 50);
+    private final Rectangle leftBoatPassengerRect = new Rectangle(200, 215, 50, 50);
+
+    private final Rectangle rightFarmerRect = new Rectangle(730, 215, 50, 50);
+    private final Rectangle rightWolfRect = new Rectangle(670, 215, 50, 50);
+    private final Rectangle rightGooseRect = new Rectangle(670, 275, 50, 50);
+    private final Rectangle rightBeansRect = new Rectangle(730, 275, 50, 50);
+    private final Rectangle rightBoatRect = new Rectangle(550, 275, 110, 50);
+    private final Rectangle rightBoatDriverRect = new Rectangle(550, 215, 50, 50);
+    private final Rectangle rightBoatPassengerRect = new Rectangle(610, 215, 50, 50);
+    
     // ==========================================================
     // Private Fields
     // ==========================================================
     
-    private GameEngine engine;
+    private GameEngine engine; // Model
     
     // ==========================================================
     // Constructor
@@ -31,16 +52,17 @@ public class RiverGUI extends JPanel implements MouseListener {
     public RiverGUI() {
         
         engine = new GameEngine();
+        addMouseListener(this);
         
     }
     
     // ==========================================================
-    // Paint Methods
+    // Paint Methods (View)
     // ==========================================================
 
     @Override
     public void paintComponent(Graphics g) {
-        
+                
         g.setColor(Color.GRAY);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
@@ -127,15 +149,15 @@ public class RiverGUI extends JPanel implements MouseListener {
             if (engine.getLocation(Item.TOP) == Location.BOAT) {
                 g.setColor(Color.CYAN);
                 g.fillRect(610, 215, 50, 50);
-                paintStringInRectangle("W", 200, 215, 50, 50, g);
+                paintStringInRectangle("W", 610, 215, 50, 50, g);
             } else if (engine.getLocation(Item.MID) == Location.BOAT) {
                 g.setColor(Color.CYAN);
                 g.fillRect(610, 215, 50, 50);
-                paintStringInRectangle("G", 200, 215, 50, 50, g);               
+                paintStringInRectangle("G", 610, 215, 50, 50, g);               
             } else if (engine.getLocation(Item.BOTTOM) == Location.BOAT) {
                 g.setColor(Color.CYAN);
                 g.fillRect(610, 215, 50, 50);
-                paintStringInRectangle("B", 200, 215, 50, 50, g);               
+                paintStringInRectangle("B", 610, 215, 50, 50, g);               
             }
         }
     }
@@ -182,15 +204,88 @@ public class RiverGUI extends JPanel implements MouseListener {
     }
 
     // ==========================================================
-    // MouseListener Methods
+    // MouseListener Methods (Controller)
     // ==========================================================
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        //
         
-    }
+        if (leftFarmerRect.contains(e.getPoint())) {
+            if (engine.getLocation(Item.PLAYER) == Location.START) {
+                engine.loadBoat(Item.PLAYER);
+            }
+        } else if (leftWolfRect.contains(e.getPoint())) {
+            if (engine.getLocation(Item.TOP) == Location.START) {
+                engine.loadBoat(Item.TOP);
+            }
+        } else if (leftGooseRect.contains(e.getPoint())) {
+            if (engine.getLocation(Item.MID) == Location.START) {
+                engine.loadBoat(Item.MID);
+            }
+        } else if (leftBeansRect.contains(e.getPoint())) {
+            if (engine.getLocation(Item.BOTTOM) == Location.START) {
+                engine.loadBoat(Item.BOTTOM);
+            }
+        } else if (leftBoatDriverRect.contains(e.getPoint())) {
+            if (engine.getCurrentLocation() == Location.START &&
+                    engine.getLocation(Item.PLAYER) == Location.BOAT) {
+                engine.unloadBoat();
+            }
+        } else if (leftBoatPassengerRect.contains(e.getPoint())) {
+            if (engine.getCurrentLocation() == Location.START &&
+                    (engine.getLocation(Item.TOP) == Location.BOAT ||
+                    engine.getLocation(Item.MID) == Location.BOAT ||
+                    engine.getLocation(Item.BOTTOM) == Location.BOAT)) {
+                engine.unloadBoat();
+            }
+        } else if (leftBoatRect.contains(e.getPoint())) {
+            if (engine.getCurrentLocation() == Location.START &&
+                    engine.getLocation(Item.PLAYER) == Location.BOAT) {
+                engine.rowBoat();
+            }
+        } else if (rightFarmerRect.contains(e.getPoint())) {
+            if (engine.getLocation(Item.PLAYER) == Location.FINISH) {
+                engine.loadBoat(Item.PLAYER);
+            }
+        } else if (rightWolfRect.contains(e.getPoint())) {
+            if (engine.getLocation(Item.TOP) == Location.FINISH) {
+                engine.loadBoat(Item.TOP);
+            }
+        } else if (rightGooseRect.contains(e.getPoint())) {
+            if (engine.getLocation(Item.MID) == Location.FINISH) {
+                engine.loadBoat(Item.MID);
+            }
+        } else if (rightBeansRect.contains(e.getPoint())) {
+            if (engine.getLocation(Item.BOTTOM) == Location.FINISH) {
+                engine.loadBoat(Item.BOTTOM);
+            }
+        } else if (rightBoatDriverRect.contains(e.getPoint())) {
+            if (engine.getCurrentLocation() == Location.FINISH &&
+                    engine.getLocation(Item.PLAYER) == Location.BOAT) {
+                engine.unloadBoat();
+            }
+        } else if (rightBoatPassengerRect.contains(e.getPoint())) {
+            if (engine.getCurrentLocation() == Location.FINISH &&
+                    (engine.getLocation(Item.TOP) == Location.BOAT ||
+                    engine.getLocation(Item.MID) == Location.BOAT ||
+                    engine.getLocation(Item.BOTTOM) == Location.BOAT)) {
+                engine.unloadBoat();
+            }
+        } else if (rightBoatRect.contains(e.getPoint())) {
+            if (engine.getCurrentLocation() == Location.FINISH &&
+                    engine.getLocation(Item.PLAYER) == Location.BOAT) {
+                engine.rowBoat();
+            }
+        } else {
+            return;
+        }
+        repaint();
+    }   
 
+    // ----------------------------------------------------------
+    // None of these methods will be used
+    // ----------------------------------------------------------
+    
     @Override
     public void mousePressed(MouseEvent e) {
         //
@@ -209,6 +304,5 @@ public class RiverGUI extends JPanel implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
         //
-    }
-
+    }    
 }
