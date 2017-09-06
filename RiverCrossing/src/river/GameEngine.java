@@ -5,9 +5,13 @@ package river;
  *     associated with an id. Use the new method to simplify the getName,
  *     getLocation, getSound, and loadBoat methods.
  * 
- * (2) Create two private methods: boatIsEmpty and getObjectOnBoat, that check
- *     if the boat is empty and returns the object on the boat, respectively.
- *     Use them to simplify loadBoat and unloadBoat.
+ * (2) Create two private methods: boatHasPassenger and getBoatPassenger, that
+ *     check if the boat has a passenger (Wolf, Goose, or Beans - does not apply
+ *     to Farmer) and returns the passenger on the boat, respectively. Use them
+ *     to simplify loadBoat and unloadBoat. Note that getBoatPassenger should be
+ *     an *accessor* method - in other words, it should simply report who the boat's
+ *     passenger is; it should NOT remove that passenger. getBoatPassenger should
+ *     return a gameObject.
  * 
  * (3) Implement a method called oppositeLocation that returns the START if the
  *     current location is FINSH and returns FINISH if the current location is
