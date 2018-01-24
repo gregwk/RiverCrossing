@@ -19,8 +19,8 @@ package river;
  *     
  * (4) Rename the method getCurrentLocation to getBoatLocation
  * 
- * (5) It turns out we do not actually need the field currentLocation as it is
- *     always the same as the player's location. Remove this field.
+ * (5) It turns out that the current location is always the location of the boat.
+ *     So rename currentLocation to boatLocation.
  *
  * (6) The two enum types are currently inner classes. Make them regular classes
  *     in package river. Change the constants in Item from TOP, MID, BOTTOM, and
