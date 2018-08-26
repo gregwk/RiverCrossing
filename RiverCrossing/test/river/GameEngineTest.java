@@ -7,16 +7,6 @@ import org.junit.Test;
 import river.GameEngine.Item;
 import river.GameEngine.Location;
 
-/*
- * (1) Most test methods start off by creating a local variable named engine.
- *     Instead of doing this, declare a (private) field named engine and 
- *     initialize it in the setUp method.
- * 
- * (2) Create a private method called transport, that loads the boat with an
- *     item, rows the boat, and unloads the boat. Use this method wherever you
- *     can to replace code that loads, rows, then unloads the boat. 
- */
-
 public class GameEngineTest {
 
     @Before
