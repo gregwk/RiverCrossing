@@ -1,36 +1,5 @@
 package river;
 
-/*
- * (1) Create a private method called getGameObject that returns a game object
- *     associated with an id. Use the new method to simplify the getName,
- *     getLocation, getSound, and loadBoat methods.
- * 
- * (2) Create two private methods: boatHasPassenger and getBoatPassenger, that
- *     check if the boat has a passenger (Wolf, Goose, or Beans - does not apply
- *     to Farmer) and returns the passenger on the boat, respectively. Use them
- *     to simplify loadBoat and unloadBoat. Note that getBoatPassenger should be
- *     an *accessor* method - in other words, it should simply report who the boat's
- *     passenger is; it should NOT remove that passenger. getBoatPassenger should
- *     return a gameObject.
- * 
- * (3) Implement a method called oppositeLocation that returns the START if the
- *     current location is FINSH and returns FINISH if the current location is
- *     START. Use it to simplify rowBoat.
- *     
- * (4) Rename the method getCurrentLocation to getBoatLocation
- * 
- * (5) It turns out that the current location is always the location of the boat.
- *     So rename currentLocation to boatLocation.
- *
- * (6) The two enum types are currently inner classes. Make them regular classes
- *     in package river. Change the constants in Item from TOP, MID, BOTTOM, and
- *     PLAYER to WOLF, GOOSE, BEANS, and FARMER. Change the constants START and
- *     FINISH in Location to LEFT_BANK and RIGHT_BANK.
- * 
- * (7) Make all GameObject fields final. Change the names top, mid, bottom, and
- *     player to wolf, goose, beans, and farmer.
- */
-
 public class GameEngine {
 
     public enum Item {
