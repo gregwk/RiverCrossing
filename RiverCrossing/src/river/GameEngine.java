@@ -71,37 +71,53 @@ public class GameEngine {
 
         switch (id) {
         case TOP:
-            if (top.getLocation() == currentLocation
-                    && mid.getLocation() != Location.BOAT
+            if (top.getLocation() == currentLocation && mid.getLocation() != Location.BOAT
                     && bottom.getLocation() != Location.BOAT) {
                 top.setLocation(Location.BOAT);
             }
             break;
         case MID:
-            if (mid.getLocation() == currentLocation
-                    && top.getLocation() != Location.BOAT
+            if (mid.getLocation() == currentLocation && top.getLocation() != Location.BOAT
                     && bottom.getLocation() != Location.BOAT) {
                 mid.setLocation(Location.BOAT);
             }
             break;
         case BOTTOM:
-            if (bottom.getLocation() == currentLocation
-                    && top.getLocation() != Location.BOAT
+            if (bottom.getLocation() == currentLocation && top.getLocation() != Location.BOAT
                     && mid.getLocation() != Location.BOAT) {
                 bottom.setLocation(Location.BOAT);
             }
             break;
+        case PLAYER:
+            if (player.getLocation() == currentLocation) {
+                player.setLocation(Location.BOAT);
+            }
         default: // do nothing
         }
     }
 
-    public void unloadBoat() {
-        if (top.getLocation() == Location.BOAT) {
-            top.setLocation(currentLocation);
-        } else if (mid.getLocation() == Location.BOAT) {
-            mid.setLocation(currentLocation);
-        } else if (bottom.getLocation() == Location.BOAT) {
-            bottom.setLocation(currentLocation);
+    public void unloadBoat(Item id) {
+        switch (id) {
+        case TOP:
+            if (top.getLocation() == Location.BOAT) {
+                top.setLocation(currentLocation);
+            }
+            break;
+        case MID:
+            if (mid.getLocation() == Location.BOAT) {
+                mid.setLocation(currentLocation);
+            }
+            break;
+        case BOTTOM:
+            if (bottom.getLocation() == Location.BOAT) {
+                bottom.setLocation(currentLocation);
+            }
+            break;
+        case PLAYER:
+            if (player.getLocation() == Location.BOAT) {
+                player.setLocation(currentLocation);
+            }
+        default: // do nothing
         }
     }
 
@@ -109,31 +125,41 @@ public class GameEngine {
         assert (currentLocation != Location.BOAT);
         if (currentLocation == Location.START) {
             currentLocation = Location.FINISH;
-            player.setLocation(Location.FINISH);
         } else {
             currentLocation = Location.START;
-            player.setLocation(Location.START);
         }
     }
 
     public boolean gameIsWon() {
-        return top.getLocation() == Location.FINISH
-                && mid.getLocation() == Location.FINISH
-                && bottom.getLocation() == Location.FINISH;
+        return top.getLocation() == Location.FINISH && mid.getLocation() == Location.FINISH
+                && bottom.getLocation() == Location.FINISH && player.getLocation() == Location.FINISH;
     }
 
     public boolean gameIsLost() {
         if (mid.getLocation() == Location.BOAT) {
             return false;
         }
-        if (mid.getLocation() != player.getLocation()
-                && mid.getLocation() == top.getLocation()) {
+        if (mid.getLocation() == player.getLocation()) {
+            return false;
+        }
+        if (mid.getLocation() == currentLocation) {
+            return false;
+        }
+        if (mid.getLocation() == top.getLocation()) {
             return true;
         }
-        if (mid.getLocation() != player.getLocation()
-                && mid.getLocation() == bottom.getLocation()) {
+        if (mid.getLocation() == bottom.getLocation()) {
             return true;
         }
         return false;
     }
+
+    public void resetGame() {
+        top.setLocation(Location.START);
+        mid.setLocation(Location.START);
+        bottom.setLocation(Location.START);
+        player.setLocation(Location.START);
+        currentLocation = Location.START;
+    }
+
 }
